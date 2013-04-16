@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "SMAppDelegate.h"
 
+
 int main(int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        
         SMAppDelegate *delegate = [SMAppDelegate new];
         [delegate setupForPort:@"/dev/cu.usbserial-A6008euA"];
         delegate.serialPort.baudRate = @9600;

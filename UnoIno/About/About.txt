@@ -1,0 +1,14 @@
+	
+	embedXcode
+	----------------------------------
+	Embedded Computing on Xcode 4
+	
+	
+	© Rei VILO, 2010-2013
+	CC = BY NC SA	
+	http://embedXcode.weebly.com/
+	
+	
+embedXcode • Apr 12, 2013 release 39 • Arduino architecture new variables
+		
+	
