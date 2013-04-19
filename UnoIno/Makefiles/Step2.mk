@@ -758,8 +758,8 @@ ifeq ($(UPLOADER),avrdude)
 endif
 
 serial:		reset
-		@echo "---- Serial ---- "
-		osascript -e 'tell application "Terminal" to do script "$(SERIAL_COMMAND) $(SERIAL_PORT) $(SERIAL_BAUDRATE)"'
+#@echo "---- Serial ---- "
+#osascript -e 'tell application "Terminal" to do script "$(SERIAL_COMMAND) $(SERIAL_PORT) $(SERIAL_BAUDRATE)"'
 		
 #		echo "$@"
 #		echo "-- "

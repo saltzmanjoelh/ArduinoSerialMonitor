@@ -94,7 +94,7 @@ void setup() {
 #elif defined(__MK20DX128__) // Teensy 3.0 specific
     myLED = 13;
 #endif
-
+    Serial.begin(9600);
     pinMode(myLED, OUTPUT);
     STATE = 0;
 }
@@ -109,9 +109,11 @@ void loop() {
         STATE = (STATE)? 0 : 1;
         if(STATE){
             digitalWrite(myLED, HIGH);
+            Serial.println("HIGH");
         }
         else{
             digitalWrite(myLED, LOW);
+            Serial.println("LOW");
         }
         delay(1000);
     }

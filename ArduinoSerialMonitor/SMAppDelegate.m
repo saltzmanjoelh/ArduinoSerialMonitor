@@ -39,11 +39,23 @@
 }
 - (void)inputAvailable
 {
+    NSData *data = NULL;
+    NSString *inputStr = NULL;
+    
     //get the data from input
-    NSData *data = [self.inHandle availableData];
+    data = [self.inHandle availableData];
     if ([data length] == 0) {
         return;
     }
+    
+    //if we aren't getting output, disconnect the USB, reconnect it and wait. If still nothing, type reconnect in the console to manually try to reconnect.
+    inputStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    if([inputStr isEqualToString:@"reconnect\n"]){
+        NSLog(@"trying to reconnect");
+        [self setupForPort:self.serialPort.path];
+        return;
+    }
+    
     
     //send it to the serial
     [self.serialPort sendData:data];
@@ -57,7 +69,7 @@
     NSArray *ports = [[ORSSerialPortManager sharedSerialPortManager] availablePorts];
 	for (ORSSerialPort *port in ports) {
         [port close];
-        if([port.path isEqualToString:portPath]){
+        if([port.path rangeOfString:portPath].location != NSNotFound){
             self.serialPort = port;
         }
     }
@@ -70,6 +82,7 @@
     self.serialPort.baudRate = @9600;
     self.serialPort.delegate = self;
     [self.serialPort open];
+    NSLog(@"serial port opened: %@", self.serialPort.path);
 }
 - (void)serialPort:(ORSSerialPort *)serialPort didReceiveData:(NSData *)data
 {
@@ -81,8 +94,17 @@
 - (void)serialPortWasRemovedFromSystem:(ORSSerialPort *)serialPort
 {
     NSLog(@"Serial port removed: %@", serialPort.path);
+    if(serialPort == self.serialPort){
+        [self.serialPort close];
+    }
 }
-
+- (void)serialPortsWereConnected:(NSNotification *)notification
+{
+	NSArray *connectedPorts = [[notification userInfo] objectForKey:ORSConnectedSerialPortsKey];
+	NSLog(@"Ports were connected: %@", connectedPorts);
+    //try to reconnect
+    [self performSelector:@selector(setupForPort:) withObject:self.serialPort.path afterDelay:2];
+}
 
 
 #pragma mark Notifications
@@ -94,11 +116,7 @@
     [nc addObserver:self selector:@selector(serialPortsWereDisconnected:) name:ORSSerialPortsWereDisconnectedNotification object:nil];
     
 }
-- (void)serialPortsWereConnected:(NSNotification *)notification
-{
-	NSArray *connectedPorts = [[notification userInfo] objectForKey:ORSConnectedSerialPortsKey];
-	NSLog(@"Ports were connected: %@", connectedPorts);
-}
+
 
 - (void)serialPortsWereDisconnected:(NSNotification *)notification
 {
