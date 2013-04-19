@@ -724,12 +724,12 @@
 			isa = PBXGroup;
 			children = (
 				386C34A2171DA634008DE330 /* main.m */,
-				386C34B1171DA7BE008DE330 /* SMAppDelegate.h */,
-				386C34B2171DA7BE008DE330 /* SMAppDelegate.m */,
 				386C34AD171DA7BE008DE330 /* ORSSerialPort.h */,
 				386C34AE171DA7BE008DE330 /* ORSSerialPort.m */,
 				386C34AF171DA7BE008DE330 /* ORSSerialPortManager.h */,
 				386C34B0171DA7BE008DE330 /* ORSSerialPortManager.m */,
+				386C34B1171DA7BE008DE330 /* SMAppDelegate.h */,
+				386C34B2171DA7BE008DE330 /* SMAppDelegate.m */,
 				386C34A6171DA634008DE330 /* Test1.1 */,
 				386C34A4171DA634008DE330 /* Supporting Files */,
 			);
@@ -2373,7 +2373,6 @@
 				386C34A9171DA634008DE330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
