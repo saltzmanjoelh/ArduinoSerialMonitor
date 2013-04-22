@@ -17,6 +17,17 @@
 //------------------------------------------
 #pragma mark Methods
 //------------------------------------------
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    [self.serialPort close];
+}
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    _inHandle = nil;
+    [_serialPort close];
+    _serialPort = nil;
+}
 - (id)init
 {
     self = [super init];
@@ -66,6 +77,11 @@
 
 - (void)setupForPort:(NSString *)portPath
 {
+    if([portPath rangeOfString:@"*"].location != NSNotFound){
+        NSLog(@"Do not use * in the board path");
+        portPath = [portPath stringByReplacingOccurrencesOfString:@"*" withString:@""];
+    }
+    
     NSArray *ports = [[ORSSerialPortManager sharedSerialPortManager] availablePorts];
 	for (ORSSerialPort *port in ports) {
         [port close];

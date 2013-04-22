@@ -18,6 +18,7 @@
 		386C34B3171DA7BE008DE330 /* ORSSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C34AE171DA7BE008DE330 /* ORSSerialPort.m */; };
 		386C34B4171DA7BE008DE330 /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C34B0171DA7BE008DE330 /* ORSSerialPortManager.m */; };
 		386C34B5171DA7BE008DE330 /* SMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 386C34B2171DA7BE008DE330 /* SMAppDelegate.m */; };
+		38A886561724D2630016741E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38A886551724D2630016741E /* AppKit.framework */; };
 		AAAA2AAAAAAAAAAA00000006 /* Arduino.h in Sources */ = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAA00000006 /* Arduino.h */; };
 		AAAA2AAAAAAAAAAA00000007 /* binary.h in Sources */ = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAA00000007 /* binary.h */; };
 		AAAA2AAAAAAAAAAA00000008 /* CDC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAAAAAAAAAAAAAAA00000008 /* CDC.cpp */; };
@@ -338,6 +339,12 @@
 		386C34B0171DA7BE008DE330 /* ORSSerialPortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortManager.m; sourceTree = "<group>"; };
 		386C34B1171DA7BE008DE330 /* SMAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMAppDelegate.h; sourceTree = "<group>"; };
 		386C34B2171DA7BE008DE330 /* SMAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMAppDelegate.m; sourceTree = "<group>"; };
+		38A886551724D2630016741E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AppKit.framework; sourceTree = DEVELOPER_DIR; };
+		38A8865D1724D5720016741E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		38A886601724D5720016741E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		38A886611724D5720016741E /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		38A886621724D5720016741E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		38A886911724DA9A0016741E /* ArduinoSerialMonitor-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ArduinoSerialMonitor-Info.plist"; sourceTree = "<group>"; };
 		AAAAAAAAAAAAAAAA00000006 /* Arduino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arduino.h; sourceTree = "<group>"; };
 		AAAAAAAAAAAAAAAA00000007 /* binary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = binary.h; sourceTree = "<group>"; };
 		AAAAAAAAAAAAAAAA00000008 /* CDC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CDC.cpp; sourceTree = "<group>"; };
@@ -582,6 +589,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38A886561724D2630016741E /* AppKit.framework in Frameworks */,
 				386C34AC171DA71F008DE330 /* IOKit.framework in Frameworks */,
 				386C34A0171DA634008DE330 /* Foundation.framework in Frameworks */,
 			);
@@ -714,8 +722,11 @@
 		386C349E171DA634008DE330 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				38A886551724D2630016741E /* AppKit.framework */,
 				386C34AB171DA71F008DE330 /* IOKit.framework */,
 				386C349F171DA634008DE330 /* Foundation.framework */,
+				38A8865D1724D5720016741E /* Cocoa.framework */,
+				38A8865F1724D5720016741E /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -723,7 +734,6 @@
 		386C34A1171DA634008DE330 /* ArduinoSerialMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				386C34A2171DA634008DE330 /* main.m */,
 				386C34AD171DA7BE008DE330 /* ORSSerialPort.h */,
 				386C34AE171DA7BE008DE330 /* ORSSerialPort.m */,
 				386C34AF171DA7BE008DE330 /* ORSSerialPortManager.h */,
@@ -739,9 +749,21 @@
 		386C34A4171DA634008DE330 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				38A886911724DA9A0016741E /* ArduinoSerialMonitor-Info.plist */,
+				386C34A2171DA634008DE330 /* main.m */,
 				386C34A5171DA634008DE330 /* ArduinoSerialMonitor-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		38A8865F1724D5720016741E /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38A886601724D5720016741E /* AppKit.framework */,
+				38A886611724D5720016741E /* CoreData.framework */,
+				38A886621724D5720016741E /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
 		AAAAAAAAAAAAAAAA00000000 /* Resources */ = {
@@ -1703,6 +1725,7 @@
 				386C3499171DA634008DE330 /* Sources */,
 				386C349A171DA634008DE330 /* Frameworks */,
 				386C349B171DA634008DE330 /* CopyFiles */,
+				38A886941724DF530016741E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1749,6 +1772,22 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		38A886941724DF530016741E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export GENERAL_PORT=\"USB\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3842E106171CCA0200C64BDB /* Sources */ = {
@@ -2205,8 +2244,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				AVRDUDE_BAUDRATE = "";
-				BOARD_PORT = "";
+				AVRDUDE_BAUDRATE = "$(inherited)";
+				BOARD_PORT = "$(inherited)";
 				BOARD_TAG = "";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
@@ -2221,12 +2260,21 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "ArduinoSerialMonitor/ArduinoSerialMonitor-Info.plist";
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
-				PATH = "";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(INFOPLIST_FILE)",
+				);
+				PATH = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SKETCH_EXTENSION = "";
+				SKETCHBOOK_DIR = "$(inherited)";
+				SKETCH_EXTENSION = "$(inherited)";
 			};
 			name = Debug;
 		};
@@ -2247,11 +2295,20 @@
 				GCC_PREFIX_HEADER = "ArduinoSerialMonitor/ArduinoSerialMonitor-Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				INFOPLIST_FILE = "ArduinoSerialMonitor/ArduinoSerialMonitor-Info.plist";
+				INFOPLIST_PREPROCESSOR_DEFINITIONS = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PATH = "";
+				OTHER_LDFLAGS = (
+					"-sectcreate",
+					__TEXT,
+					__info_plist,
+					"$(INFOPLIST_FILE)",
+				);
+				PATH = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
-				SKETCH_EXTENSION = "";
+				SKETCHBOOK_DIR = "$(inherited)";
+				SKETCH_EXTENSION = "$(inherited)";
 			};
 			name = Release;
 		};
@@ -2373,6 +2430,7 @@
 				386C34A9171DA634008DE330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

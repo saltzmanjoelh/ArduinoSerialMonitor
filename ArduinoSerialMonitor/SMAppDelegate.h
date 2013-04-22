@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "ORSSerialPort.h"
 #import "ORSSerialPortManager.h"
 
-@interface SMAppDelegate : NSObject <ORSSerialPortDelegate, NSUserNotificationCenterDelegate>
+@interface SMAppDelegate : NSObject <NSApplicationDelegate, ORSSerialPortDelegate, NSUserNotificationCenterDelegate>
 //------------------------------------------
 #pragma mark Properties
 //------------------------------------------
